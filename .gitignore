@@ -1,0 +1,8 @@
+libimobiledevice/
+libimobiledevice-glue/
+libplist/
+libusbmuxd/
+libtatsu/
+libusb*/
+usbmuxd/
+.DS_Store

@@ -4,7 +4,6 @@ LOCAL_DIR=$(dirname "$0")
 LOCAL_DIR=$(cd "$LOCAL_DIR" && pwd)
 
 INSTALL_DIR_NAME='__install'
-export PKG_CONFIG_PATH="$LOCAL_DIR"
 for d in $(ls $LOCAL_DIR); do
     if [ -d "$d" ]; then
         export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$LOCAL_DIR/$d/$INSTALL_DIR_NAME/lib/pkgconfig"
@@ -17,8 +16,8 @@ install_win_deps() {
     echo "Installing dependencies for Windows..."
 
     # pacman -Syu
-    pacman -S --needed mingw-w64-x86_64-toolchain mingw-w64-x86_64-cython mingw-w64-x86_64-libzip
-    pacman -S --needed base-devel cython msys2-devel git make automake autoconf libtool pkgconf openssl openssl-devel libcurl
+    pacman -S --needed mingw-w64-x86_64-toolchain mingw-w64-x86_64-cython mingw-w64-x86_64-libzip mingw-w64-x86_64-curl
+    pacman -S --needed base-devel cython msys2-devel git make automake autoconf libtool pkgconf openssl openssl-devel
 }
 
 install_linux_deps() {
